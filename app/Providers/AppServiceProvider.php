@@ -3,6 +3,8 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Maatwebsite\Excel\Sheet;
+use Maatwebsite\Excel\Writer;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -13,7 +15,17 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        Sheet::macro('styleCells', function(Sheet $sheet, string $cellRange, array $style){
+            $sheet->getDelegate()->getStyle($cellRange)->applyFromArray($style);
+        });
+
+        Writer::macro('setCreator', function (Writer $writer, string $creator) {
+            $writer->getDelegate()->getProperties()->setCreator($creator);
+        });
+
+        Sheet::macro('setOrientation', function (Sheet $sheet, $orientation) {
+            $sheet->getDelegate()->getPageSetup()->setOrientation($orientation);
+        });
     }
 
     /**

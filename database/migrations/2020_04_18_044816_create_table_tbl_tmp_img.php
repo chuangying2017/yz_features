@@ -17,6 +17,7 @@ class CreateTableTblTmpImg extends Migration
 
             $table->id();
             $table->integer('uid')->default(0);
+            $table->integer('site_id')->default(0);
             $table->string('name')->nullable()->comment('上传图片名称');
             $table->string('img_path')->nullable()->comment('上传图片路径');
             $table->timestamps();

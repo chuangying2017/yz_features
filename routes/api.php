@@ -18,4 +18,13 @@ use Illuminate\Support\Facades\Route;
     return $request->user();
 });*/
 
-Route::post('/img_upload', 'ImportFeaturesController@uploadImg');
+Route::post('/testXlsx', 'ImportFeaturesController@importProduct');
+
+Route::get('/test', function(){
+    try{
+        throw_if(true,Exception::class,'测试问题');
+    }catch (Exception $exception)
+    {
+        dd($exception->getMessage());
+    }
+});
