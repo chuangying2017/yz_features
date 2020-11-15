@@ -1,2 +1,2 @@
 cloud.php merge=ours
-_config.php merge-ours
+_config.php merge=ours
