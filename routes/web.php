@@ -17,4 +17,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/test', 'ProductExcelAlgorithmController@show');
+Route::get('/index', 'IndexController@index')->name('Index.index');
+
+Route::get('/propagation', 'IndexController@list_find');
+
+Route::get('/test', function(){
+
+    dd($_SERVER);
+});
